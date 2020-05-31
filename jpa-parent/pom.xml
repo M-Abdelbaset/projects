@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.home</groupId>
+	<artifactId>jpa-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>../test_jpa</module>
+		<module>../transaction-attributes</module>
+		<module>../registration_extended</module>
+		<module>../registration_detached</module>
+		<module>../container-managed-EM</module>
+		<module>../application-managed-EM-JTA</module>
+		<module>../application-managed-EM-resourceLocal</module>
+	</modules>
+</project>
