@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<bean id="gym" class="com.home.demo.GymCoach" lazy-init="true">
+ 		<constructor-arg ref="services" />
+ 	</bean>
+	
+	<bean id="swimming" class="com.home.demo.SwimmingCoach" init-method="init" 
+			destroy-method="destroy" scope="singleton" lazy-init="true">
+		<property name="service" ref="services"/>
+ 		<property name="name" value="abotreka"/>
+ 		<property name="experience" value="${coach.experience}"/>
+	</bean>
+	
+	<bean id="swimming2" class="com.home.demo.SwimmingCoach" init-method="init" 
+			destroy-method="destroy" scope="singleton"
+		p:service-ref="service"
+ 		p:name="abotreka"
+ 		p:experience="${coach.experience}" />
+	
+	<context:property-placeholder location="classpath:conf/conf.properties"/>
+	
+	<bean id="service" class="com.home.demo.CoachServiceImpl"/>
+	
+	<bean id="static" class="com.home.demo.Factory" factory-method="create">
+		 <constructor-arg value="test static" />
+	</bean>
+	
+	<bean id="static2" factory-bean="factory" factory-method="create2"> <!-- non static factory method -->
+		 <constructor-arg value="test static 2" />
+	</bean>
+	
+	<bean id="factory" class="com.home.demo.Factory" />
+	
+	<bean id="collection" class="com.home.demo.MyCollection" >
+		 <constructor-arg index="0">
+		 	<set>
+		 		<value>item1</value>
+		 	</set>
+		 </constructor-arg>
+	</bean>
+	
+	<bean id="mySingleton1" class="com.home.singletonwithprototype.MySingleton">
+		<property name="myPrototype" ref="myPrototypeBean" />	
+	</bean>
+	
+	<bean id="mySingleton2" class="com.home.singletonwithprototype.MyContextAwareSingleton" />
+
+	<bean id="mySingleton3" class="com.home.singletonwithprototype.MyLookupMethod" >
+		<lookup-method name="createPrototype"/>
+	</bean>
+	 
+	<bean id="myPrototypeBean" class="com.home.singletonwithprototype.MyPrototype" scope="prototype" />
+	
+	<bean id="parentTemplate" class="com.home.demo.Parent" abstract="false">
+		<property name="name" value="parent" />
+		<property name="age" value="1" />
+	</bean>
+	
+	<bean id="child" class="com.home.demo.Child" parent="parentTemplate" >
+		<property name="lname" value="child" />
+	</bean>
+	
+</beans>
