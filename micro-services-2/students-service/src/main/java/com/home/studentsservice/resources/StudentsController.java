@@ -29,7 +29,8 @@ public class StudentsController {
 	
 	@GetMapping(path="/props")
 	public String getProps() {
-		String props = env.getProperty("my.property") + " - " + env.getProperty("my.property2") + " - " + env.getProperty("my.propertyX");
+		String props = env.getProperty("my.property") + " - " + env.getProperty("my.property2") 
+		+ " - " + env.getProperty("my.propertyX") + " - " + env.getProperty("my.property.application");
 		return props;
 	}
 }
