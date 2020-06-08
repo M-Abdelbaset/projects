@@ -15,10 +15,17 @@ public class StudentsController {
 	
 	@Autowired RestTemplate restTemplate;
 	
+	@Autowired SimpleGradesServiceFeignProxy simpleGradesServiceFeignProxy;
+	
 	@GetMapping(path="/students")
 	public String getStudentWithGrade() {
 		String portNum = restTemplate.getForObject("http://GRADES-SERVICE/grade", String.class);
 		return portNum;
+	}
+	
+	@GetMapping(path="/students/feign")
+	public String getStudentWithGradeUsingFeign() {
+		return simpleGradesServiceFeignProxy.getGrade();
 	}
 	
 	@GetMapping(path="/props")

@@ -1,0 +1,2 @@
+create table student(id int unique not null, name varchar(50), primary key (id));
+create table exam(id int unique not null, name varchar(50), student_id int not null, primary key(id), foreign key (student_id) references student(id));
