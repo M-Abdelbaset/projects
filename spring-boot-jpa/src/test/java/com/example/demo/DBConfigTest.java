@@ -1,7 +1,9 @@
 package com.example.demo;
 
 import java.util.Properties;
+
 import javax.sql.DataSource;
+
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +15,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
-public class DBConfig {
+public class DBConfigTest {
 
 	@Bean 
 	public DataSource dataSource() {

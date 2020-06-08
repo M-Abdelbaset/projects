@@ -10,7 +10,7 @@ import org.springframework.test.jdbc.JdbcTestUtils;
 import com.example.demo.repo.ExamRepository;
 import com.example.demo.repo.StudentRepository;
 
-@SpringJUnitConfig(classes = {DBConfig.class, ExamRepository.class, StudentRepository.class})
+@SpringJUnitConfig(classes = {DBConfigTest.class, ExamRepository.class, StudentRepository.class})
 @DataJpaTest
 public abstract class AbstractApplicationTest {
 	
