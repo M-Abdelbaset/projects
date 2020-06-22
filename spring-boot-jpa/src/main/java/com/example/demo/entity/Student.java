@@ -12,12 +12,14 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity(name = "Student")
 @Table(name = "student")
-@Setter @Getter
+@Setter @Getter @NoArgsConstructor @AllArgsConstructor
 public class Student {
 
 	@Id

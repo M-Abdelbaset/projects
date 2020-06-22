@@ -20,7 +20,7 @@ class FullWebTest extends AbstractWebTest {
 	
 	MockMvc mockMvc;
 	@Autowired WebApplicationContext context;
-
+	
 	@BeforeEach
 	void init() {
 		mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
@@ -28,20 +28,11 @@ class FullWebTest extends AbstractWebTest {
 	
 	@Test
 	void test() throws Exception {
-		mockMvc.perform(get("/rest/json")
-				.queryParam("key", "Ali")
-		 .accept(MediaType.APPLICATION_JSON))
-		.andExpect(status().isOk())
-		.andExpect(jsonPath("$.val").value("Ali"));
-	}
-	
-	@Test
-	void mock() throws Exception {
 		
 		mockMvc.perform(get("/rest/json")
 				.queryParam("key", "Ali")
 		 .accept(MediaType.APPLICATION_JSON))
 		.andExpect(status().isOk())
-		.andExpect(jsonPath("$.xyz").value("Ali"));
+		.andExpect(jsonPath("$.val").value("Ali"));
 	}
 }

@@ -1,5 +1,6 @@
 package com.home.integration.trx;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -55,7 +56,8 @@ abstract class AbstractMySqlTest {
 			return new LocalSessionFactoryBuilder(dataSource())
 					.addAnnotatedClass(AbstractMySqlTest.Student.class)
 					.setProperty("hibernate.show_sql", "true")
-					.setProperty("hibernate.hbm2ddl.auto", "update")
+					.setProperty("hibernate.hbm2ddl.auto", "create")
+					.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL55Dialect")
 					.buildSessionFactory();
 		}
 		
@@ -78,6 +80,7 @@ abstract class AbstractMySqlTest {
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Integer id;
+		@Column(length = 5)
 		private String name;
 	}
 }

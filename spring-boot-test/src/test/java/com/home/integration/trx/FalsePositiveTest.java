@@ -42,6 +42,7 @@ class FalsePositiveTest extends AbstractMySqlTest {
 			// test
 			student.setName("123");
 			sf.getCurrentSession().persist(student);
+			sf.getCurrentSession().flush();
 			
 			// update name with invalid length
 			student.setName("1234567");
