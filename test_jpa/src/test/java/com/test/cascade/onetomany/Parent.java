@@ -19,7 +19,6 @@ import lombok.Setter;
 @Entity(name = "Parent")
 @Table(name = "parent")
 @Setter @Getter @NoArgsConstructor
-
 public class Parent {
 
 	@Id

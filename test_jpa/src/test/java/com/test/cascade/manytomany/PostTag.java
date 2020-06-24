@@ -27,7 +27,7 @@ public class PostTag {
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "tag_id", insertable = false, updatable = false)
-//	@MapsId("TagId") // alternative approach
+//	@MapsId("tagId") // alternative approach
 	private Tag tag;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)

@@ -62,7 +62,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 	public RoleHierarchyVoter roleHierarchyVoter() {
 		return new RoleHierarchyVoter(roleHierarchyImpl());
 	}
-
+	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		PasswordEncoder passwordEncoder = 

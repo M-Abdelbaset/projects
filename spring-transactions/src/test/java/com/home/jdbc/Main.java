@@ -13,7 +13,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 public class Main {
 
 	public static void main(String[] args) {
-
+		
 		AnnotationConfigApplicationContext ctx = 
 				new AnnotationConfigApplicationContext(Main.class);	
 		

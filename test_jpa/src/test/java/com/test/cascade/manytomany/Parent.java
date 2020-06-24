@@ -24,9 +24,8 @@ public class Parent {
 	private Integer id;
 	private String name;
 	
-	@ManyToMany(mappedBy = "parents", cascade = {CascadeType.PERSIST, 
-			CascadeType.MERGE,
-			CascadeType.REMOVE})
+	@ManyToMany(mappedBy = "parents", 
+			cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
 	private Set<Child> children = new HashSet<>();
 	
 	public void addChild(Child child) {

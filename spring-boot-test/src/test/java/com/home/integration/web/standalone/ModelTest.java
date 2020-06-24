@@ -41,7 +41,8 @@ class ModelTest {
 		mvm.add("age", "-1");
 		
 		mockMvc.perform(post("/web/valid")
-				.params(mvm)) // we pass params separately to simulate form data. Otherwise, we wont capture form inputs changes against actual object
+				.params(mvm)) // we pass params separately to simulate form data. 
+		//Otherwise, we wont capture form inputs changes against actual object
 		.andExpect(model().hasErrors());
 	}
 }
