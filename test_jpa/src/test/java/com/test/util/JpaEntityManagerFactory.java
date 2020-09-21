@@ -69,7 +69,7 @@ public class JpaEntityManagerFactory {
 	private void setConnection(Properties properties) {
 		
 		String driver = "com.mysql.cj.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/test_hibernate?useSSL=false";
+		String url = "jdbc:mysql://localhost:3306/test_hibernate?useSSL=false&allowPublicKeyRetrieval=true";
 		String user = "root";
 		String password = "Passw0rd";
 		String dialct = "org.hibernate.dialect.MySQL55Dialect";

@@ -12,7 +12,7 @@ public class Arrays {
 //		X<?, String>[] xs6 = new X<?, ?>[] {};
 //		X<Object, Object>[] xs7 = new X<?, ?>[] {};
 
-		
+		Y<?> y = new Y<String>();
 	}
 	
 	class X<T, V>{
@@ -21,4 +21,5 @@ public class Arrays {
 		
 	}
 	
+	class Y<T> {}
 }

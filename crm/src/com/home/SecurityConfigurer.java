@@ -35,10 +35,10 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 		
 		// authorized pages
-		.antMatchers("/", "/resources/**").permitAll()
 		.antMatchers("/register", "/process-register").hasAnyRole("ANONYMOUS", "MANAGER")
 		.antMatchers("/customer/list").hasRole("USER")
 		.antMatchers("/customer/update", "/customer/delete").hasRole("MANAGER")
+		.antMatchers("/", "/resources/**").permitAll()
 		.anyRequest().denyAll()
 		
 		// login

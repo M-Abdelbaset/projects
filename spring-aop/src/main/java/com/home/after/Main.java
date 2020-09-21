@@ -18,7 +18,7 @@ public class Main {
 			ServiceDao service1 = ctx.getBean(ServiceDao.class);
 			service1.run(false);
 			service1.run(true);
-		
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

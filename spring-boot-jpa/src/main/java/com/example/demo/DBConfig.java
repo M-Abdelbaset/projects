@@ -5,6 +5,7 @@ import java.util.Properties;
 import javax.sql.DataSource;
 
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -15,6 +16,9 @@ import org.springframework.transaction.PlatformTransactionManager;
 @Configuration
 public class DBConfig {
 
+	@Autowired DataSource dataSource;
+	
+	/*
 	@Bean 
 	public DataSource dataSource() {
 		DriverManagerDataSource ds = new DriverManagerDataSource();
@@ -26,7 +30,8 @@ public class DBConfig {
 		
 		return ds;
 	}
-	
+*/	
+	/*
 	@Bean
 	public PlatformTransactionManager transactionManager() {
 		return new HibernateTransactionManager(sessionFactory());
@@ -37,10 +42,11 @@ public class DBConfig {
 		Properties properties = new Properties();
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.hbm2ddl.auto", "update");
+	//	properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL55Dialect");
 		
-		return new LocalSessionFactoryBuilder(dataSource())
+		return new LocalSessionFactoryBuilder(dataSource)
 				.scanPackages("com.example.demo.entity")
 				.addProperties(properties)
 				.buildSessionFactory();
-	}
+	}*/
 }

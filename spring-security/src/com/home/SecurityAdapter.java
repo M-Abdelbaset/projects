@@ -14,6 +14,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -32,9 +34,11 @@ public class SecurityAdapter extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-	//	auth.jdbcAuthentication().dataSource(dataSource);
+		auth.jdbcAuthentication().dataSource(dataSource);
+
+	//	auth.userDetailsService(customUserDetailsService());
 		
-		auth.authenticationProvider(customAuthenticationProvider());
+	//	auth.authenticationProvider(customAuthenticationProvider());
 		
 		/*
 		UserBuilder user = User.withDefaultPasswordEncoder();
@@ -60,13 +64,7 @@ public class SecurityAdapter extends WebSecurityConfigurerAdapter {
 			.and()
 			.exceptionHandling().accessDeniedPage("/access-denied");
 	}
-	/*
-	@Override
-	public void configure(WebSecurity web) throws Exception {
-		
-		web.httpFirewall(null);
-	}
-	*/
+
 	@Bean
 	public CustomUserDetailsService customUserDetailsService() {
 		return new CustomUserDetailsService();
@@ -83,7 +81,7 @@ public class SecurityAdapter extends WebSecurityConfigurerAdapter {
 		return new CustomAuthenticationProvider();
 	}
 	
-	@Bean
+//	@Bean
 	public DaoAuthenticationProvider daoAuthenticationProvider() {
 		
 		DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();

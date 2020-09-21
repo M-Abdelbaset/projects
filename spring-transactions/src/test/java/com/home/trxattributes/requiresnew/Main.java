@@ -21,7 +21,7 @@ public class Main {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(Main.class);
 
 		CustomerFacade customerFacade = ctx.getBean(CustomerFacade.class);
-/*
+
 		System.out.println(customerFacade.count());
 		try {
 			customerFacade.persist();
@@ -37,7 +37,7 @@ public class Main {
 
 		}
 		System.out.println(customerFacade.count());
-*/
+
 		System.out.println(customerFacade.count());
 		
 		customerFacade.persistv2();
@@ -67,9 +67,9 @@ public class Main {
 		localSessionFactoryBean.setPackagesToScan("com.home.trxattributes.requiresnew");
 
 		Properties hibernateProperties = new Properties();
-		hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+		hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQL55Dialect");
 		hibernateProperties.put("hibernate.show_sql", "true");
-		hibernateProperties.put("hibernate.hbm2ddl.auto", "update");
+		hibernateProperties.put("hibernate.hbm2ddl.auto", "create");
 
 		localSessionFactoryBean.setHibernateProperties(hibernateProperties);
 		return localSessionFactoryBean;

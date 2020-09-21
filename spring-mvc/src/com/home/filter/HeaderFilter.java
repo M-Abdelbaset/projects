@@ -15,7 +15,7 @@ public class HeaderFilter extends HttpFilter {
 	@Override
 	protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
 			throws IOException, ServletException {
-
+		
 		req.setAttribute("filtered", true);
 		if(req.getParameter("block") != null) {
 			ServletOutputStream os = res.getOutputStream();

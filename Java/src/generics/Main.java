@@ -1,5 +1,8 @@
 package generics;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -17,6 +20,9 @@ public class Main {
 		
 //		d.test(d2);
 
+		List<?> any = new ArrayList<String>();
+		List<? super Number> num = new ArrayList<Object>();
+		num.add(new Float(1));
 	}
 	
 }

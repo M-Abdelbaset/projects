@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Setter @Getter
-//@Component
+@Component
 public class Child2 {
 	
 }

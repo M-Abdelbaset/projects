@@ -57,9 +57,9 @@ public class Main {
 		entityManagerFactoryBean.setDataSource(dataSource());
 		
 		Properties hibernateProperties = new Properties();
-		hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+		hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQL55Dialect");
 		hibernateProperties.put("hibernate.show_sql", "true");
-		hibernateProperties.put("hibernate.hbm2ddl.auto", "update");
+		hibernateProperties.put("hibernate.hbm2ddl.auto", "create");
 
 		entityManagerFactoryBean.setPackagesToScan("com.home.trxattributes.requiresnew2");
 		entityManagerFactoryBean.setJpaProperties(hibernateProperties);

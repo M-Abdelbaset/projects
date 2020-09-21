@@ -15,7 +15,7 @@ public class Ambiguity {
 		void set(V v) {
 			
 		}
-			
+		
 		void set2(List<String> l) {}
 	//	void set2(List<Long> l) {} //causes ambiguity due to erasure
 		
@@ -24,6 +24,7 @@ public class Ambiguity {
 	static class A {
 		void set2(List<String> l) {}
 	}
+	
 	static class B extends A{
 		//void set2(List<Long> l) {} //causes ambiguity due to erasure
 		void set2(List l) {}

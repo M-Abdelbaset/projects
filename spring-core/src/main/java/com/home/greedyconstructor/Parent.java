@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Parent {
 
-//	@Autowired(required = false)
+	@Autowired(required = false)
 	public Parent() {
 		System.out.println("Default constructor ...");
 	}

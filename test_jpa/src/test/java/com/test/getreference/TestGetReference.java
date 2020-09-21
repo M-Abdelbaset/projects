@@ -44,13 +44,12 @@ public class TestGetReference extends AbstractJPATest{
 	}
 	
 	@Test
-	@Disabled
+//	@Disabled
 	public void testPersistWithGetReference() {
 		
 		doInTransaction(masterEM, () -> {
 			
-			Student student = masterEM.getReference(Student.class, 1);
-			System.out.println(masterEM.contains(student));
+			Student student = masterEM.getReference(Student.class, 78);
 			
 			Book book = new Book("book 1");
 			book.setStudent(student);

@@ -31,7 +31,7 @@ public class _AfterAdvice {
 			returning = "names")
 	public void afterReturning(JoinPoint jp, List<String> names) {
 		
-		Stream.of(jp.getArgs()).forEach((val) -> System.out.println(val));
+		Stream.of(jp.getArgs()).forEach(System.out::println);
 		ListIterator<String> it = names.listIterator();
 		while(it.hasNext()) {
 			it.set(it.next().toUpperCase());
